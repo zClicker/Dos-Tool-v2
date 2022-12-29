@@ -6,13 +6,32 @@ import socket
 from colorama import Fore
 import errno
 
+title = Fore.CYAN + """
+
+
+___________.__           ________          __   _______          __         ___    
+\__    ___/|  |__   ____ \______ \   _____/  |_ \      \   _____/  |_   /\  \  \   
+  |    |   |  |  \_/ __ \ |    |  \ /  _ \   __\/   |   \_/ __ \   __\  \/   \  \  
+  |    |   |   Y  \  ___/ |    `   (  <_> )  | /    |    \  ___/|  |    /\    )  ) 
+  |____|   |___|  /\___  >_______  /\____/|__| \____|__  /\___  >__|    )/   /  /  
+                \/     \/        \/                    \/     \/            /__/  
+
+        GitHub: @TheDotNet1 Telegram: @ImHackerlol
+
+
+                    """
+
+
 def dos():
     try:
 
         try:
+
+            print(title)
+
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-            target = input("target IP: ")
+            target = input("target IP (like 127.0.0.1 ecc...): ")
             port = int(input("target PORT: "))
             sleep = float(input("sleap TIME: "))
 
@@ -28,7 +47,10 @@ def dos():
         except IOError as e:
             if e.errno == errno.EPIPE:
                 pass
+
     except KeyboardInterrupt:
+        print("Stopping the attack...")
+        time.sleep(1)
         exit()
 
 def delay_print(s):
@@ -37,10 +59,8 @@ def delay_print(s):
         sys.stdout.flush()
         time.sleep(0.025)
 
-title = Fore.CYAN + """"""
-
 def banner():
-    delay_print("Made By Dotnet\n")
+    print(title)
     delay_print("Don't use for illegal porpouse\n")
 
 def ddos():
@@ -51,35 +71,47 @@ def ddos():
 def main():
     banner()
 
+    try:
+    
+        try:
+
     #print("Wrong Usage")
     #print("Use -h to show the help panel")
     
-    if sys.argv[1] == "-h" or sys.argv[1] == "--help":
-        os.system("clear")
+            if sys.argv[1] == "-h" or sys.argv[1] == "--help":
+                os.system("clear")
 
-        banner()
+                banner()
 
-        print("Use -d or --dos for the DoS Pannel")
+                print("Use -d or --dos for the DoS Pannel")
 
-        print("Use -ds or --ddos for the DDoS Pannel")
+                print("Use -ds or --ddos for the DDoS Pannel")
 
-    elif sys.argv[1] == "-d" or sys.argv[1] == "--dos":
+            elif sys.argv[1] == "-d" or sys.argv[1] == "--dos":
 
-        os.system("clear")
+                os.system("clear")
 
-        banner()
+                banner()
 
-        dos()
+                dos()
 
-    elif sys.argv[1] == "-ds" or sys.argv[1] == "--ddos":
-        os.system("clear")
+            elif sys.argv[1] == "-ds" or sys.argv[1] == "--ddos":
+                os.system("clear")
 
-        banner()
+                banner()
 
-        ddos()
+                ddos()
 
-    else:
-        print(Fore.RED + "Incorrect Usage")
+            else:
+                print(Fore.RED + "Incorrect Usage")
+
+        except:
+            print("Somethings went wrong\nTry with -h")
+
+    except KeyboardInterrupt:
+
+        delay_print("Exiting...")
+        sys.exit("Have a good day ;)")
 
 if __name__ == "__main__":
     main()

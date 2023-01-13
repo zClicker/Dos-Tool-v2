@@ -96,7 +96,10 @@ def get_proxies():
 
 def ddos():
     os.system("clear")
-
+    
+    delay_print(Fore.RED + "Coming Soon...")
+    
+"""
     host = str(input("IP victim: "))
     pack_sent = 0
 
@@ -122,7 +125,7 @@ def ddos():
         delay_print("Byeee")
         sys.exit()
 
-
+"""
 def main():
     banner()
 

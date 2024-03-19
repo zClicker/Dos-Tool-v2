@@ -4,7 +4,7 @@ Simple Dos\DDoS tool in python
 
 # How to use
 
-1) git clone https://github.com/TheDotNet1/Dos-Tool-v2.git
+1) git clone https://github.com/zClicker/Dos-Tool-v2.git
 
 2) cd Dos-Tool-v2
 

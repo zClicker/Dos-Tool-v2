@@ -18,7 +18,7 @@ ___________.__           ________          __   _______          __         ___
   |____|   |___|  /\___  >_______  /\____/|__| \____|__  /\___  >__|    )/   /  /  
                 \/     \/        \/                    \/     \/            /__/  
 
-        GitHub: @TheDotNet1 Telegram: @ImHackerlol
+        GitHub: @zClicker Telegram: @cvvdracoyz
 
 
                     """
